@@ -5,6 +5,8 @@ services:
     build: .
     volumes:
       - .:/code
+    ports:
+      - "3000:80"
 
 networks:
   default:
