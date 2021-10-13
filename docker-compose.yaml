@@ -3,8 +3,6 @@ version: "3"
 services:
   app:
     image: kennylajara/job-skills-analyzer
-    volumes:
-      - .:/code
     ports:
       - "3000:80"
 
