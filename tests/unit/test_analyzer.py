@@ -5,7 +5,7 @@ from tests.helper import mock_api
 
 class TestTorreAPI(TestCase):
 
-    @mock.patch('app.analyzer.analyzer.TorreAPI.search_jobs', return_value=mock_api('jobs'))
+    @mock.patch('app.analyzer.analyzer.TorreAPI.search_jobs', return_value=mock_api('torre_jobs'))
     def test_analyze_job(self, mock) -> None: 
 
         skills = {
@@ -22,8 +22,9 @@ class TestTorreAPI(TestCase):
         for skill, value in analysis['related_skills'].items():
             self.assertEqual(type(skill), str)
             self.assertEqual(type(value), float)
+        self.assertDictEqual(analysis, mock_api('analyzer_jobs')[1])
 
-    @mock.patch('app.analyzer.analyzer.TorreAPI.search_people', return_value=mock_api('people'))
+    @mock.patch('app.analyzer.analyzer.TorreAPI.search_people', return_value=mock_api('torre_people'))
     def test_analyze_people(self, mock) -> None: 
 
         skills = {
@@ -40,3 +41,4 @@ class TestTorreAPI(TestCase):
         for skill, value in analysis['related_skills'].items():
             self.assertEqual(type(skill), str)
             self.assertEqual(type(value), float)
+        self.assertDictEqual(analysis, mock_api('analyzer_people')[1])
