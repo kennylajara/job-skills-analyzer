@@ -1,27 +1,31 @@
 from fastapi import FastAPI, Query
 from app.analyzer import Analyzer
+from pydantic import BaseModel
+from app.api.torre import Proficiency
 
 
 app = FastAPI()
 
 
-@app.get("/jobs")
-def read_root(sample: int = Query(20, le=2500)):
+class Skills(BaseModel):
+    skills: dict[str, Proficiency]
 
-    skills = {
-        'php': 'novice',
-    }
+
+@app.post("/jobs")
+def analyze_jobs(skills: Skills, sample: int = Query(20, le=2500)):
+
     analyzer = Analyzer()
 
-    return analyzer.analyze_jobs(skills, sample=sample)
+    skills_dict = dict(skills)['skills']
+
+    return analyzer.analyze_jobs(skills_dict, sample=sample)
 
 
-@app.get("/people")
-def read_root(sample: int = Query(20, le=2500)):
+@app.post("/people")
+def analyze_people(skills: Skills, sample: int = Query(20, le=2500)):
 
-    skills = {
-        'php': 'novice',
-    }
     analyzer = Analyzer()
 
-    return analyzer.analyze_people(skills, sample=sample)
+    skills_dict = dict(skills)['skills']
+
+    return analyzer.analyze_people(skills_dict, sample=sample)
