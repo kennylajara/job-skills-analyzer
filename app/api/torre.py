@@ -1,6 +1,15 @@
 import http.client
 import json
-from typing import Any, Optional, Tuple
+from typing import Any, Optional, Tuple, Union
+from enum import Enum
+
+
+class Proficiency(Enum):
+    master = "master"
+    expert = "expert"
+    proficient = "proficient"
+    novice = "novice"
+    no_experience_interested = "no-experience-interested"
 
 
 class TorreAPI:
@@ -135,7 +144,7 @@ class TorreAPI:
                     {
                         "skill/role": {
                             "text": skill,
-                            "proficiency": proficiency
+                            "proficiency": Proficiency(proficiency).value
                         }
                     }
                 )
