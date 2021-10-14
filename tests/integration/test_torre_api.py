@@ -1,4 +1,3 @@
-from typing import cast
 from unittest import TestCase
 from app.api import TorreAPI
 
