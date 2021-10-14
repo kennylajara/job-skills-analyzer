@@ -57,6 +57,7 @@ class Analyzer:
         }
 
         return {
+            'population': items['total'],
             'sample_type': item_type,
             'sample_size': min(items['total'], sample),
             'skills': skills,
