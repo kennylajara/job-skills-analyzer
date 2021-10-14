@@ -1,20 +1,6 @@
 import http.client
 import json
-from typing import Any, Optional, Tuple, Union
-
-from enum import Enum
-from collections import namedtuple
-
-
-Proficiency = namedtuple('Proficiency', ['value', 'weight'])
-
-
-class ProficiencyLevel(Enum):
-    master = Proficiency("master", 4)
-    expert = Proficiency("expert", 3)
-    proficient = Proficiency("proficient", 2)
-    novice = Proficiency("novice", 1)
-    no_experience_interested = Proficiency("no-experience-interested", 0)
+from typing import Any, Optional, Tuple
 
 
 class TorreAPI:
