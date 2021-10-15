@@ -9,11 +9,6 @@ import os
 app = FastAPI()
 
 
-# Allow Frontend
-origins = [
-    os.environ['CORS'],
-]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
