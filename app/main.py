@@ -3,7 +3,6 @@ from app.analyzer import Analyzer
 from pydantic import BaseModel
 from app.api.torre import Proficiency
 from fastapi.middleware.cors import CORSMiddleware
-import os
 
 
 app = FastAPI()
