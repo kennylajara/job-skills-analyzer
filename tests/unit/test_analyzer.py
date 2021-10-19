@@ -19,9 +19,11 @@ class TestTorreAPI(TestCase):
         self.assertEqual(analysis['sample_size'], 20)
         self.assertDictEqual(analysis['skills'], skills)
         self.assertEqual(type(analysis['related_skills']), dict)
+
         for skill, value in analysis['related_skills'].items():
             self.assertEqual(type(skill), str)
             self.assertEqual(type(value), float)
+
         self.assertDictEqual(analysis, mock_api('analyzer_jobs')[1])
 
     @mock.patch('app.analyzer.analyzer.TorreAPI.search_people', return_value=mock_api('torre_people'))
@@ -38,7 +40,9 @@ class TestTorreAPI(TestCase):
         self.assertEqual(analysis['sample_size'], 20)
         self.assertDictEqual(analysis['skills'], skills)
         self.assertEqual(type(analysis['related_skills']), dict)
+
         for skill, value in analysis['related_skills'].items():
             self.assertEqual(type(skill), str)
             self.assertEqual(type(value), float)
+
         self.assertDictEqual(analysis, mock_api('analyzer_people')[1])
