@@ -29,9 +29,11 @@ class TorreAPI:
         conn.request("GET", url, payload, headers)
         res = conn.getresponse()
         data = json.loads(res.read().decode("utf-8"))
-        strengths = data['strengths']
 
-        return res.status, strengths
+        if 'strengths' in data:
+            return res.status, data['strengths']
+
+        return res.status, data
 
     def get_job_skills(self, id: str) -> Tuple[int, dict]:
         """Get the details of a job at Torre.co"""

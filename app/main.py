@@ -1,7 +1,7 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Response
 from app.analyzer import Analyzer
 from pydantic import BaseModel
-from app.api.torre import Proficiency
+from app.api.torre import Proficiency, TorreAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -39,3 +39,16 @@ def analyze_people(skills: Skills, sample: int = Query(20, le=2500)):
     skills_dict = dict(skills)['skills']
 
     return analyzer.analyze_people(skills_dict, sample=sample)
+
+@app.get('/people/{username}/skills')
+def get_skill_of_the_specified_user(username: str, response: Response):
+
+    api = TorreAPI()
+    status, skills = api.get_person_skills(username)
+
+    # Validate status code
+    if status != 200:
+        response.status_code = status
+        return skills
+
+    return [ skill['name'] for skill in skills ]
