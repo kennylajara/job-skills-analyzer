@@ -35,3 +35,10 @@ def test_post_people(mock):
     )
     assert response.status_code == 200
     assert json.loads(response.content) == mock_api('analyzer_people')[1]
+
+
+@mock.patch('app.api.TorreAPI.get_person_skills', return_value=mock_api('torre_people_skills'))
+def test_post_people(mock):
+    response = client.get("/people/kennylajara/skills")
+    assert response.status_code == 200
+    assert json.loads(response.content) == mock_api('analyzer_people_skills')[1]

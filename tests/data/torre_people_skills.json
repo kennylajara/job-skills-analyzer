@@ -1,0 +1,47 @@
+[
+    {
+        "id": "j6dXv9gN",
+        "code": 229378,
+        "name": "Data science",
+        "proficiency": "no-experience-interested",
+        "weight": 0,
+        "recommendations": 0,
+        "media": [],
+        "supra": false,
+        "created": "2021-10-12T21:08:10"
+    },
+    {
+        "id": "ynrbQpBy",
+        "code": 45396,
+        "name": "Leadership",
+        "proficiency": "no-experience-interested",
+        "weight": 0,
+        "recommendations": 0,
+        "media": [],
+        "supra": false,
+        "created": "2021-10-12T21:08:10"
+    },
+    {
+        "id": "NVYB1ZVy",
+        "code": 11897,
+        "name": "Team management",
+        "proficiency": "no-experience-interested",
+        "weight": 0,
+        "recommendations": 0,
+        "media": [],
+        "supra": false,
+        "created": "2021-10-12T21:08:10"
+    },
+    {
+        "id": "yX7BBvxj",
+        "code": 55555,
+        "name": "Golang",
+        "proficiency": "no-experience-interested",
+        "additionalInfo": "",
+        "weight": 0,
+        "recommendations": 0,
+        "media": [],
+        "supra": false,
+        "created": "2021-10-12T21:08:10"
+    }
+]
